@@ -31,9 +31,7 @@ FROM OPENROWSET(BULK 'C:\Users\Administrator\Desktop\XML\10801-XML\INSXMLII.XML'
 Declare @XMLData XML
 Set @XMLData = (Select XMLData From #INSXMLII_10801XML For XML AUTO,TYPE)
 
-Select @XMLData
-
-
+--Select @XMLData
 
 IF OBJECT_ID('TEMPDB..#CLATInpNHIPointsList_INSXMLII') IS NOT NULL DROP TABLE #CLATInpNHIPointsList_INSXMLII
 CREATE TABLE #CLATInpNHIPointsList_INSXMLII (
@@ -568,7 +566,6 @@ from #CLATInpNHIPointsList_INSXMLII
 
 --SELECT * FROM #CLATInpNHIPointsList_INSXMLII
 --SELECT * FROM CLATInpNHIPointsList
---select * from CLATInpNHIPointsList where PatientName = '陳蔡瓊霞'
 
 
 --set identity_insert dbo.CLATInpNHIPointsList OFF
